@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 // MUI components
+import Item from "./Item/Item";
 import { Drawer, LinearProgress, Grid, Badge } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
@@ -43,7 +44,17 @@ const App = () => {
 
   if (isLoading) return <LinearProgress />;
   if (error) return <div>Something went wrong</div>;
-  return <div className="App"></div>;
+  return (
+    <Wrapper>
+      <Grid container spacing={3}>
+        {data?.map((item) => (
+          <Grid item key={item.id} xs={12} sm={4}>
+            <Item item={item} handleAddToCart={handleAddToCart} />
+          </Grid>
+        ))}
+      </Grid>
+    </Wrapper>
+  );
 };
 
 export default App;
