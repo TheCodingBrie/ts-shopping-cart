@@ -36,6 +36,7 @@ const App = () => {
   );
   console.log(data);
 
+  // comment
   const getTotalItems = () => null;
 
   const handleAddToCart = (clickedItem: CartItemType) => null;
